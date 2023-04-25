@@ -41,4 +41,27 @@ class Flower:
 f=Flower()
 f.set_flower_name("Jasmine")
 f.set_stock_available(45)
-print(f.check_level())  
+print(f.check_level())
+
+class Bill:
+    def __init__(self,bill_id,patient_name):
+        self.__bill_id = bill_id
+        self.__patient_name = patient_name 
+        self.__bill_amount = None
+    
+    def calculate_bill_amount(self,consultation_fees, quantity_list, price_list):
+        self.__bill_amount=consultation_fees
+        for i in range(len(quantity_list)):
+            self.__bill_amount+=(quantity_list[i]*price_list[i])
+    def get_bill_id(self):
+        return self.__bill_id
+    def get_bill_amount(self):
+        return self.__bill_amount
+    def get_patient_name(self):
+        return self.__patient_name
+    
+b=Bill(100,"swapna")
+print(b.calculate_bill_amount(1000,[1,3,6,2],[30,45,150,25]))
+print(b.get_patient_name())
+print(b.get_bill_amount())
+print(b.get_bill_id)
