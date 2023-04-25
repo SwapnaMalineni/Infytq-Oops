@@ -157,5 +157,18 @@ s.set_marks(75)
 s.set_age(24)
 print(s.check_qualification())
 print(s.check_qualification())
-    
+   
+def choose_course(self,course_id):
+        if(self.check_qualification() and (course_id==1001 or course_id==1002)):
+            self.__course_id=course_id
+            if(course_id==1001):
+                self.__fees=25575.0
+            elif(course_id==1002):
+                self.__fees=15500.0
+            if(self.__marks>85):
+                self.__fees=self.__fees-(self.__fees*25/100)
+            return True
+        return False
+        
+  
         
