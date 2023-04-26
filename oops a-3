@@ -183,3 +183,19 @@ class Applicant:
 a=Applicant("Swapna")
 a.generate_applicant_id()
 a.apply_for_job("B")
+
+    def calculate_lab_test_charge(self):
+        lab_test_charge=0
+        for i in self.__list_of_lab_test_ids:
+            if LabTestRepository.get_test_charge(i)!=-1:
+                lab_test_charge+=LabTestRepository.get_test_charge(i)
+        self.__lab_test_charge=lab_test_charge
+
+
+    @staticmethod
+    def get_test_charge(lab_test_id):
+        for i in range(len(LabTestRepository.__list_of_hospital_lab_test_ids)):
+            if  LabTestRepository.__list_of_hospital_lab_test_ids[i]==lab_test_id:
+                x=LabTestRepository.__list_of_lab_test_charge[i]
+                return x
+        return -1
