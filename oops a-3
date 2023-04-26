@@ -146,3 +146,23 @@ class Ticket:
         else:
             self.__ticket_id=None
     
+class Applicant:
+    application_dict=dict()
+    application_id_count=1000
+    def __init__(self,applicant_name):
+        self.__application_name=application_name
+        self.__application_id+=1
+        self.__job_band=None
+    def get_application_name(self):
+        return self.__application_name
+    def get_application_id(self):
+        return self.__application_id
+    def get_job_band(self):
+        return self.__job_band
+    @staticmethod
+    def get_application_dict(self):
+        return self.__application_dict
+    def generate_applicant_id(self):
+        Application.application_id_count+=1
+        self.__application_id=Application.application_id_count
+        
