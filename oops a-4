@@ -1,1 +1,49 @@
+class Apparel:
+    counter=100
+    def __init__(self):
+        Apparel.counter+=1
+        self.__price=0
+        self.__item_id=""
+    def get_item_id(self):
+        return self.__item_id
+    def get_price(self):
+        return self.__price
+    def get_item_type(self):
+        return self.__item_type
+    def set_price(self,price):
+        self.__price=price
+    def calculate(self):
+        self.__price=self.__price+(self.__price*5/100)
+class Cotton:
+    def __init__(self):
+        super().__init__()
+        self.__item_id="C"+str(Apparel.counter)
+        self.__item_type="Cotton"
+    def get_discount(self):
+        return self.__discount
+    def calculate_price(self):
+        super().calculate_price()
+        self.__price=self.__price-(self.__price*self.__discount/100)
+        self.__price=self.__price+(self.__price*5/100)
+class Silk:
+    def __init__(self):
+        super().__init__()
+        self.__item_id="S"+str(Apparel.counter)
+        self.__item_type="Silk"
+        self.__points=0
+    def get_points(self):
+        return self.__points
+    def calculate_price(self):
+        super().calculate_price()
+        self.__price=self.__price+(self.__price*5/100)
+        if self.__price>10000:
+            self.__points=10
+        else:
+            self.__points=3
+        self.__price=self.__price*(self.__price*5/100)
+c=Cotton()
+print(c.calculate_price())
+s=Silk()
+print(s.calculate_price())
+
 
